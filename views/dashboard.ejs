@@ -1,0 +1,46 @@
+<%- include('partials/header', { title, currentPath }) %>
+
+<h1>Home</h1>
+<p class="subtitle">Welcome, <strong><%= currentUser.name %></strong>.</p>
+
+<a href="/employees" class="card kpi-card kpi-wide">
+  <div class="kpi-card-header">
+    <span class="kpi-label">Employees by position</span>
+    <span class="kpi-total"><%= stats.employeesTotal %> active</span>
+  </div>
+  <div class="kpi-bars">
+    <% const maxN = Math.max(...stats.byPosition.map(p => p.n), 1); %>
+    <% stats.byPosition.forEach(function(p) { %>
+      <div class="kpi-bar-row">
+        <span class="kpi-bar-label"><%= p.position %></span>
+        <div class="kpi-bar-track"><div class="kpi-bar-fill" style="width:<%= Math.round(p.n / maxN * 100) %>%"></div></div>
+        <span class="kpi-bar-n"><%= p.n %></span>
+      </div>
+    <% }); %>
+  </div>
+</a>
+
+<div class="grid-5">
+  <a href="/disciplinary" class="card kpi-card">
+    <span class="kpi-label">Disciplinary pending approval</span>
+    <span class="kpi-n"><%= stats.pendingCases %></span>
+  </a>
+  <a href="/cctv" class="card kpi-card">
+    <span class="kpi-label">CCTV pending review</span>
+    <span class="kpi-n"><%= stats.pendingCctv %></span>
+  </a>
+  <a href="/attendance" class="card kpi-card">
+    <span class="kpi-label">Attendance flags</span>
+    <span class="kpi-n"><%= stats.attendanceFlags %></span>
+  </a>
+  <a href="/voting" class="card kpi-card">
+    <span class="kpi-label">Open voting topics</span>
+    <span class="kpi-n"><%= stats.openVotes %></span>
+  </a>
+  <a href="/training" class="card kpi-card">
+    <span class="kpi-label">Training sessions this month</span>
+    <span class="kpi-n"><%= stats.trainingThisMonth %></span>
+  </a>
+</div>
+
+<%- include('partials/footer') %>

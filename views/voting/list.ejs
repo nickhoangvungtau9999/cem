@@ -1,0 +1,28 @@
+<%- include('../partials/header', { title, currentPath }) %>
+
+<div id="vote-root" data-is-admin="<%= currentUser && currentUser.role === 'admin' ? '1' : '0' %>">
+<h1>Voting</h1>
+<p class="subtitle">Admin creates topics, eligible employees take part.</p>
+
+<div id="vote-user-section">
+  <h2>Open topics</h2>
+  <div id="vote-open-topics" class="card empty-state">Loading...</div>
+</div>
+
+<div id="vote-admin-section" style="display:none;">
+  <h2>Manage topics (Admin)</h2>
+  <div class="card">
+    <button id="vote-new-topic-btn" class="secondary">+ New topic</button>
+    <div id="vote-new-topic-form-slot"></div>
+  </div>
+  <div class="card">
+    <table id="vote-admin-table">
+      <thead><tr><th>Title</th><th>Period</th><th>Eligible ranks</th><th>Nominee positions</th><th>Votes</th><th>Status</th><th></th></tr></thead>
+      <tbody><tr><td colspan="7" class="empty-state">Loading...</td></tr></tbody>
+    </table>
+  </div>
+</div>
+</div>
+
+<script src="/js/voting.js"></script>
+<%- include('../partials/footer') %>

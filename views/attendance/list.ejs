@@ -1,0 +1,40 @@
+<%- include('../partials/header', { title, currentPath }) %>
+
+<div id="att-root" data-tier="<%= userTier %>">
+<h1>Attendance</h1>
+<p class="subtitle">Attendance log — repeat violations are flagged for a disciplinary case.</p>
+
+<div class="card">
+  <h2 style="margin-top:0">Repeat violations needing attention</h2>
+  <table id="att-flags-table">
+    <thead><tr><th>Employee</th><th>Type</th><th>Count</th><th>Suggested violation</th><th>Action</th></tr></thead>
+    <tbody><tr><td colspan="5" class="empty-state">Loading...</td></tr></tbody>
+  </table>
+</div>
+
+<div class="card">
+  <div style="display:flex; gap:8px;">
+    <input type="text" id="att-search" placeholder="Search by name, reason..." style="flex:1;">
+    <select id="att-type">
+      <option value="">All types</option>
+      <option value="SL">SL</option>
+      <option value="EO">EO</option>
+      <option value="NS">NS</option>
+      <option value="LATE">Late</option>
+      <option value="CSL">CSL</option>
+      <option value="PT">PT</option>
+      <option value="UP">UP</option>
+    </select>
+  </div>
+</div>
+
+<div class="card">
+  <table id="att-table">
+    <thead><tr><th>Date</th><th>Employee</th><th>Shift</th><th>Type</th><th>From</th><th>To</th><th>Days</th><th>Reason</th></tr></thead>
+    <tbody><tr><td colspan="8" class="empty-state">Loading...</td></tr></tbody>
+  </table>
+</div>
+</div>
+
+<script src="/js/attendance.js"></script>
+<%- include('../partials/footer') %>

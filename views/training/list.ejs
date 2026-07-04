@@ -1,0 +1,40 @@
+<%- include('../partials/header', { title, currentPath }) %>
+
+<h1>Training &amp; skill matrix</h1>
+<p class="subtitle">Completed training sessions by game type.</p>
+
+<div class="card">
+  <h2 style="margin-top:0">Overview by game</h2>
+  <table id="train-summary-table">
+    <thead><tr><th>Game</th><th>Employees trained</th><th>Sessions</th></tr></thead>
+    <tbody><tr><td colspan="3" class="empty-state">Loading...</td></tr></tbody>
+  </table>
+</div>
+
+<div class="card">
+  <h2 style="margin-top:0">Look up skills by employee</h2>
+  <div style="display:flex; gap:8px;">
+    <input type="text" id="train-emp-id" placeholder="Enter employee ID (e.g. 00584)" style="flex:1;">
+    <button id="train-emp-btn">Look up</button>
+  </div>
+  <table id="train-skill-table" style="margin-top:12px; display:none;">
+    <thead><tr><th>Game</th><th>Sessions</th><th>Last</th></tr></thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+<div class="card">
+  <h2 style="margin-top:0">Training history</h2>
+  <div style="display:flex; gap:8px; margin-bottom:12px;">
+    <select id="train-game">
+      <option value="">All games</option>
+    </select>
+  </div>
+  <table id="train-log-table">
+    <thead><tr><th>Date</th><th>Employee</th><th>Game</th><th>Month</th></tr></thead>
+    <tbody><tr><td colspan="4" class="empty-state">Loading...</td></tr></tbody>
+  </table>
+</div>
+
+<script src="/js/training.js"></script>
+<%- include('../partials/footer') %>

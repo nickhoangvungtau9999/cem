@@ -1,0 +1,27 @@
+<%- include('../partials/header', { title, currentPath }) %>
+
+<h1>Exposure report</h1>
+<p class="subtitle">Actual interaction with each game, sourced from the Rating system.</p>
+
+<div class="card">
+  <h2 style="margin-top:0">Overview by game / role</h2>
+  <table id="exp-summary-table">
+    <thead><tr><th>Game</th><th>Role</th><th>Employees</th><th>Sessions</th></tr></thead>
+    <tbody><tr><td colspan="4" class="empty-state">Loading...</td></tr></tbody>
+  </table>
+</div>
+
+<div class="card">
+  <h2 style="margin-top:0">Look up by employee</h2>
+  <div style="display:flex; gap:8px;">
+    <input type="text" id="exp-emp-id" placeholder="Enter employee ID (e.g. 00584)" style="flex:1;">
+    <button id="exp-emp-btn">Look up</button>
+  </div>
+  <table id="exp-emp-table" style="margin-top:12px; display:none;">
+    <thead><tr><th>Game</th><th>Role</th><th>Sessions</th><th>Last</th></tr></thead>
+    <tbody></tbody>
+  </table>
+</div>
+
+<script src="/js/exposure.js"></script>
+<%- include('../partials/footer') %>

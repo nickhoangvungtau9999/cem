@@ -1,0 +1,14 @@
+node_modules/
+node-v22.16.0-win-x64/
+db/casino.db
+db/casino.db-shm
+db/casino.db-wal
+uploads/*
+!uploads/.gitkeep
+photos/*
+!photos/.gitkeep
+.env
+server.log
+*.xlsx
+*.xls
+*.csv

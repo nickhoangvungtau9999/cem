@@ -1,0 +1,18 @@
+<%- include('../partials/header', { title, currentPath }) %>
+
+<div id="perf-root" data-tier="<%= userTier %>">
+<h1>Performance</h1>
+<p class="subtitle">Quick criteria-based notes — separate from the formal disciplinary case system.</p>
+
+<div class="card">
+  <div style="display:flex; gap:8px;">
+    <input type="text" id="perf-emp-id" placeholder="Enter employee ID (e.g. 00584)" style="flex:1;">
+    <button id="perf-load-btn">Look up</button>
+  </div>
+</div>
+
+<div id="perf-content"></div>
+</div>
+
+<script src="/js/performance.js"></script>
+<%- include('../partials/footer') %>

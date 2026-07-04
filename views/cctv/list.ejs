@@ -1,0 +1,26 @@
+<%- include('../partials/header', { title, currentPath }) %>
+
+<h1>CCTV report</h1>
+<p class="subtitle">Surveillance daily record — links into disciplinary cases.</p>
+
+<div class="card">
+  <div style="display:flex; gap:8px;">
+    <input type="text" id="cctv-search" placeholder="Search by incident number, name, content..." style="flex:1;">
+    <select id="cctv-status">
+      <option value="">All statuses</option>
+      <option value="Pending">Pending</option>
+      <option value="Reviewed">Reviewed</option>
+      <option value="Actioned">Actioned</option>
+    </select>
+  </div>
+</div>
+
+<div class="card">
+  <table id="cctv-table">
+    <thead><tr><th>Date</th><th>Incident #</th><th>Employee</th><th>POS</th><th>Content</th><th>Status</th></tr></thead>
+    <tbody><tr><td colspan="6" class="empty-state">Loading...</td></tr></tbody>
+  </table>
+</div>
+
+<script src="/js/cctv.js"></script>
+<%- include('../partials/footer') %>

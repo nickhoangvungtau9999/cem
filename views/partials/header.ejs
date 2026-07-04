@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= typeof title !== 'undefined' ? title + ' — Casino Staff' : 'Casino Staff' %></title>
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/app.js"></script>
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand">🎲 Table Games Staff</div>
+    <nav>
+      <% const path = typeof currentPath !== 'undefined' ? currentPath : ''; %>
+      <% const navItems = [
+        ['/', 'Home'],
+        ['/employees', 'Employees'],
+        ['/disciplinary', 'Disciplinary'],
+        ['/cctv', 'CCTV'],
+        ['/attendance', 'Attendance'],
+        ['/training', 'Training'],
+        ['/exposure', 'Exposure'],
+        ['/performance', 'Performance'],
+        ['/voting', 'Voting'],
+      ]; %>
+      <% navItems.forEach(function(item) { %>
+        <a href="<%= item[0] %>" class="<%= path === item[0] ? 'active' : '' %>"><%= item[1] %></a>
+      <% }); %>
+      <% if (currentUser && currentUser.role === 'admin') { %>
+        <a href="/settings" class="<%= path === '/settings' ? 'active' : '' %>">Settings</a>
+      <% } %>
+    </nav>
+    <div class="userbox">
+      <div><strong><%= currentUser ? currentUser.name : '' %></strong></div>
+      <div><%= currentUser ? currentUser.role : '' %></div>
+      <form action="/api/auth/logout" method="post" id="logout-form">
+        <button type="submit">Log out</button>
+      </form>
+    </div>
+  </aside>
+  <main>

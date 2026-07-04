@@ -1,0 +1,36 @@
+<%- include('../partials/header', { title, currentPath }) %>
+
+<h1>Settings</h1>
+<p class="subtitle">Manage users, permission exceptions, and Excel data import.</p>
+
+<h2>Data import</h2>
+<div class="card">
+  <p class="subtitle">Upload a multi-sheet Excel file (Employee Info, TG Transactions, Couple List, Disciplinary Matrix, CCTV Daily Record, attendance log, Training Record, Exposure) — each sheet maps automatically to its table, safe to re-import.</p>
+  <form id="import-form">
+    <input type="file" name="file" accept=".xlsx,.xls" required>
+    <button type="submit">Import</button>
+  </form>
+  <div id="import-result" style="margin-top:12px;"></div>
+</div>
+<div class="card">
+  <h2 style="margin-top:0">Import history</h2>
+  <table id="import-log-table">
+    <thead><tr><th>Time</th><th>File</th><th>Sheet</th><th>Added</th><th>Skipped</th><th>Status</th></tr></thead>
+    <tbody><tr><td colspan="6" class="empty-state">Loading...</td></tr></tbody>
+  </table>
+</div>
+
+<h2>User management</h2>
+<div class="card">
+  <button id="user-new-btn" class="secondary">+ New user</button>
+  <div id="user-form-slot"></div>
+</div>
+<div class="card">
+  <table id="users-table">
+    <thead><tr><th>Username</th><th>Name</th><th>Role</th><th>Linked employee</th><th>App pos level</th><th>Effective tier</th><th>Override</th><th></th></tr></thead>
+    <tbody><tr><td colspan="8" class="empty-state">Loading...</td></tr></tbody>
+  </table>
+</div>
+
+<script src="/js/settings.js"></script>
+<%- include('../partials/footer') %>

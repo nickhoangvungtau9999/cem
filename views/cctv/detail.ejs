@@ -1,0 +1,8 @@
+<%- include('../partials/header', { title, currentPath }) %>
+
+<div id="cctv-detail-root" data-incident-id="<%= incidentId %>" data-tier="<%= userTier %>">
+  <div class="empty-state">Loading...</div>
+</div>
+
+<script src="/js/cctv.js"></script>
+<%- include('../partials/footer') %>

@@ -1,0 +1,29 @@
+<%- include('../partials/header', { title, currentPath }) %>
+
+<div id="disc-root" data-tier="<%= userTier %>">
+<h1>Disciplinary</h1>
+<p class="subtitle">Cases from CCTV, repeat attendance violations, or manual entry — 3-tier approval.</p>
+
+<div class="card">
+  <div style="display:flex; gap:8px; align-items:center;">
+    <select id="disc-status">
+      <option value="">All statuses</option>
+      <option value="Pending Approval">Pending Approval</option>
+      <option value="Approved">Approved</option>
+      <option value="Rejected">Rejected</option>
+    </select>
+    <span id="disc-new-btn-slot"></span>
+  </div>
+  <div id="disc-form-slot"></div>
+</div>
+
+<div class="card">
+  <table id="disc-table">
+    <thead><tr><th>Date</th><th>Employee</th><th>Violation</th><th>Level</th><th>Status</th><th>Action</th></tr></thead>
+    <tbody><tr><td colspan="6" class="empty-state">Loading...</td></tr></tbody>
+  </table>
+</div>
+</div>
+
+<script src="/js/disciplinary.js"></script>
+<%- include('../partials/footer') %>
