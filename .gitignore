@@ -12,3 +12,5 @@ server.log
 *.xlsx
 *.xls
 *.csv
+# synthetic test fixture, no real PII — safe to track
+!seed-files/sample_data.xlsx
